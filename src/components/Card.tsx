@@ -1,8 +1,9 @@
-import { FaInstagram, FaTiktok } from "react-icons/fa";
-import { PiDiamondFill } from "react-icons/pi";
 import { type User } from "~/pages/api/user/[id]";
 import { RejectIcon } from "./icons/reject";
 import AcceptIcon from "./icons/accept";
+import InstagramIcon from "./icons/instagram";
+import TikTokIcon from "./icons/tiktok";
+import DiamondIcon from "./icons/diamond";
 
 
 interface CardProps {
@@ -33,12 +34,12 @@ const Card: React.FC<CardProps> = ({ user }) => {
               <span className="mt-2 flex items-center text-lg text-gray-500">{user.location}</span>
             </div>
             <div className="flex flex-row gap-2">
-              <span className="inline-flex align-middle gap-2 h-10 text-base font-medium items-center rounded-2xl bg-yellow-500 px-5 py-6 text-gray-600 ">
-                <FaInstagram className="w-4 h-4" /> {user.instagram} |
-                <span className="text-lg">{user.instagram_followers}</span>
+              <span className="inline-flex align-middle gap-2 h-10 text-base font-regular items-center rounded-2xl bg-yellow-500 px-5 py-6 text-gray-600 ">
+                <InstagramIcon className="w-5 h-5" /> {user.instagram} |
+                <span className="text-base">{user.instagram_followers}</span>
               </span>
-              <span className="inline-flex align-middle gap-2 h-10 text-base font-medium items-center rounded-2xl bg-yellow-500 px-5 py-6 text-gray-600 ">
-                <FaTiktok /> {user.tiktok}
+              <span className="inline-flex align-middle gap-2 h-10 text-base font-regular items-center rounded-2xl bg-yellow-500 px-5 py-6 text-gray-600 ">
+                <TikTokIcon className="w-6 h-8" /> {user.tiktok}
               </span>
             </div>
 
@@ -50,15 +51,15 @@ const Card: React.FC<CardProps> = ({ user }) => {
             </span>
           </div>
           <div className="flex gap-4 flex-col" >
-            <div className="flex gap-2 items-center"  >
-              <span className="font-bold text-lg">High Potential</span>
-              <span className="border-l-2 min-h-6 border-black" />
+            <div className="flex gap-3 items-center"  >
+              <span className="font-medium text-lg">High Potential</span>
+              <span className="border-l-2 min-h-5 border-black" />
               <a className="underline text-stone-400 text-sm" href="http://google.com">View Application</a>
             </div>
             <div className="flex flex-row justify-between">
               <div className="flex flex-row gap-2">
                 {Array.from(Array(16).keys()).map((item, key) => {
-                  return <PiDiamondFill className="w-4 h-4" key={item + key} color={user.potential > item ? '#49904A' : '#D3E2CC'} />
+                  return <DiamondIcon className={`w-4 h-4 fill-current  ${user.potential > item ? 'text-green-700' : 'text-green-700 opacity-10'} `} key={item + key} />
                 })}
 
               </div>
