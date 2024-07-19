@@ -25,7 +25,6 @@ export default function Home({ user }: InferGetServerSidePropsType<typeof getSer
           <h1 className="text-2xl font-extrabold tracking-tight">
             Devotion Frontend Take Home
           </h1>
-          <img src="card.png" alt="card" />
           <Card user={user} />
         </div>
       </main>
